@@ -1,7 +1,7 @@
 import express from "express";
+dotenv.config();
 import dotenv from "dotenv";
 import { sendMessage } from "../bot.js";
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;

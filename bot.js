@@ -1,8 +1,12 @@
 import { Client, GatewayIntentBits, REST, Routes } from "discord.js";
+import dotenv from "dotenv";
+dotenv.config();
 
-const TOKEN = process.env.DISCORD_TOKEN;
+const TOKEN = process.env.TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CHANNEL_ID = process.env.CHANNEL_ID;
+
+console.log(TOKEN, CLIENT_ID, CHANNEL_ID);
 
 const client = new Client({
   intents: [
