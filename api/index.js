@@ -25,3 +25,9 @@ app.post("/send-message", (req, res) => {
   const success = sendMessage(message);
   return res.send(success ? "Message sent!" : "Failed to send message");
 });
+
+app.get("/test-message", (req, res) => {
+  const message = "This is a test message from the API /test-message route";
+  const success = sendMessage(message);
+  return res.send(success ? "Message sent!" : "Failed to send message");
+});
