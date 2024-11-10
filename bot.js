@@ -35,25 +35,6 @@ const rest = new REST({ version: "10" }).setToken(TOKEN);
   }
 })();
 
-async function sendMessage(messageContent) {
-  try {
-    await client.login(TOKEN);
-
-    const channel = await client.channels.fetch(CHANNEL_ID);
-    if (!channel) {
-      console.error("Channel not found.");
-      return false;
-    }
-
-    const message = await channel.send(messageContent);
-    console.log(`Message sent: ${message.content}`);
-    return true;
-  } catch (error) {
-    console.error(`Error sending message: ${error}`);
-    return false;
-  }
-}
-
 client.once("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -83,5 +64,24 @@ client.on("messageCreate", (message) => {
 
 // Log in to Discord
 client.login(TOKEN);
+
+async function sendMessage(messageContent) {
+  try {
+    // await client.login(TOKEN);
+
+    const channel = await client.channels.fetch(CHANNEL_ID);
+    if (!channel) {
+      console.error("Channel not found.");
+      return false;
+    }
+
+    const message = await channel.send(messageContent);
+    console.log(`Message sent: ${message.content}`);
+    return true;
+  } catch (error) {
+    console.error(`Error sending message: ${error}`);
+    return false;
+  }
+}
 
 export { client, sendMessage };
