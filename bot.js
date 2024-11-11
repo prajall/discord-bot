@@ -67,7 +67,7 @@ client.login(TOKEN);
 
 async function sendMessage(messageContent) {
   try {
-    // await client.login(TOKEN);
+    await client.login(TOKEN);
 
     const channel = await client.channels.fetch(CHANNEL_ID);
     if (!channel) {
